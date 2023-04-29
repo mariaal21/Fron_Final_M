@@ -39,7 +39,7 @@ export const FormLog = () => {
                 <input type="text" id="password" name="password" placeholder="Password" />
 
 
-                <button type="submit">Añadir</button>
+                <button type="submit">Login</button>
             </form>
             <p className="error-message">{errors}</p>
         </>

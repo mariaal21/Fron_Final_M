@@ -1,9 +1,10 @@
 import React from 'react'
+import { FormLog } from '../compenents/FormLog'
 
 export const Login = () => {
   return (
     <div>
-        <h1>Login</h1>
+       <FormLog/>
     </div>
   )
 }
