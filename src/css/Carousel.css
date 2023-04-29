@@ -1,0 +1,44 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .carousel__wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .carousel__slide {
+    flex: 0 0 100%;
+  }
+  
+  .carousel__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel__button--left,
+  .carousel__button--right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    color: white;
+  }
+  
+  .carousel__button--left {
+    left: 1rem;
+  }
+  
+  .carousel__button--right {
+    right: 1rem;
+  }
+  
