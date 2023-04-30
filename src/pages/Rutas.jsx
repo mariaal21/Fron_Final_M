@@ -2,23 +2,24 @@ import { useNavigate, Form, useActionData, redirect, Link } from 'react-router-d
 import { Clasica } from '../compenents/Clasica'
 import { Deportiva } from '../compenents/Deportiva'
 import { Boulder } from '../compenents/Boulder'
+import { Cards } from '../compenents/Cards'
+
 
 export const Rutas = () => {
-
-    const navigate = useNavigate()
-
+    
+    /*const navigate = useNavigate()*/
   return (
     <div>
         <Link to="/rutas/clasica">
-            <Clasica/>
+            <p>clasica</p>
         </Link>
         <Link  to="/rutas/deportiva">
-            <Deportiva/>
+        <p>Deportiva</p>
         </Link> 
-        <Link to="/rutas/boulder">
-            <Boulder/>
+        <Link to="/rutas/boulder">       
+        <p>Boulder</p>
         </Link>
-        
+
     </div>
   )
 }

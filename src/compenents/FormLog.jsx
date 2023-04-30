@@ -11,13 +11,13 @@ export const FormLog = () => {
 
         const newTodo = {
             id: Date.now(),
-            todo: ev.target.email.value,
-            description: ev.target.password.value,
+            email: ev.target.email.value,
+            password: ev.target.password.value,
             done: false,
             date: new Date(),
         };
 
-        if (newTodo.todo == "") {
+        if (newTodo.email == "") {
             setErrors("Rellena el título");
             return;
         } else if (newTodo.password == "") {

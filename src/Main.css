@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .card{
+    border: 1px solid black;
+    width: 250px;
+    margin: 20px;
+  }
+  
+  .card-image img{
+    width: 249px;
+  }
+  
+  .card-title,
+  .description{
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+  
+  }

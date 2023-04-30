@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Fetch } from "../utils/api";
+import { FetchBoulder } from "../utils/api";
 
-const useFetch = () => {
+const useFetchBoulder = () => {
 
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const FetchTipo = async () => {
-      const response = await Fetch('http://localhost:4500/api/routes');
+    const FetchLocalizacion = async () => {
+      const response = await FetchBoulder('http://localhost:4500/api/routes/boulder');
       console.log(response)
       const jsonData = response.data
       setData(jsonData);
       console.log(jsonData)
     };
-    FetchTipo();
+    FetchLocalizacion();
   }, []);
 
 
@@ -25,7 +25,4 @@ const useFetch = () => {
   
 };
 
-export default useFetch;
-
-
-
+export default useFetchBoulder;

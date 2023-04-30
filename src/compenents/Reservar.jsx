@@ -51,6 +51,3 @@ export const Reservar = () => {
     </form>
   );
 };
-
-
-
