@@ -9,6 +9,7 @@ const Layout = () => {
       <Link to="/foro" > Foro </Link>
       <Link to="/favoritos" > Favoritos </Link>
       <Link to="/login" > Login </Link>
+      <Link to="/register" > Register </Link>
       <main >
             <Outlet />
         </main>

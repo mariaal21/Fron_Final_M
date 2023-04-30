@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
 import Index from './pages/Index'
 import Layout from './compenents/Layout'
 import { Rutas } from './pages/Rutas'
@@ -8,12 +7,9 @@ import { Clasica } from './compenents/Clasica'
 import { Boulder } from './compenents/Boulder'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Deportiva } from './compenents/Deportiva'
-import { Foro } from './pages/Foro'
 import { Favoritos } from './pages/Favoritos'
+import { Register } from './pages/Register'
 import { Login } from './pages/Login'
-
-
-
 
 
 
@@ -28,7 +24,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/rutas',
-        element: <Rutas />,
+        element: <Rutas
+                  
+                />,
       },
       {
         path: '/rutas/clasica',
@@ -43,28 +41,27 @@ const router = createBrowserRouter([
         element: <Boulder />,
       },
       {
-        path: '/foro',
-        element: <Foro/>,
-      },
-      {
         path: '/favoritos',
         element: <Favoritos />,
       },
       {
         path: '/login',
-        element: <Login />,
+        element: <Login />, //aqui deberian ir las rutas al los difernetes log in
+      },
+      {
+        path: '/register',
+        element: <Register />, //aqui deberian ir las rutas al los difernetes log in
       },
 
     ]
   }
 ])
 
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <RouterProvider router={router}/>
 
-       <RouterProvider router={router}/>
- 
   </React.StrictMode>,
 )
+
+
