@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import '../Main.css'
-// import deportiva from '../assets/img/deportiva.jpg'
-// import clasica from '../assets/img/clasica.jpg'
-// import boulder from '../assets/img/boulder.jpg'
+import deportiva from '../assets/img/deportiva.jpg'
+import clasica from '../assets/img/clasica.jpg'
+import boulder from '../assets/img/boulder.jpg'
 
 
 export const Cards = () => {
@@ -10,19 +10,19 @@ export const Cards = () => {
     const info = [
         {   
             id: 1,
-            // img: clasica,
+            img: clasica,
             title: "Clásica",
             to: "rutas/clasica"
         },
         {   
             id: 2,
-            // img: deportiva,
+            img: deportiva,
             title: "Deportiva",
             to: "rutas/deportiva"
         },
         {   
             id: 3,
-            // img:boulder,
+            img:boulder,
             title: "Boulder",
             to: "rutas/boulder"
         },

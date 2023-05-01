@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation} from 'react-router-dom'
-
+import '../Main.css'
 
 const Layout = () => {
   const location = useLocation()
