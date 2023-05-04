@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../Main.css'
 
 
 
@@ -21,43 +22,54 @@ export const Register = () => {
 
     return (
         <>
-            <a href="/login">Login</a>
+            <a href="/login">Registrarse</a>
 
             <div>
                 {/* 
                 <Link to={'./login'}>
                     <button>Sign in</button>
                 </Link> */}
+<form action="" className="form-container">
+    <div>
+    <a href="/register" class="form-heading">Registrarse</a>
+      
+        <label htmlFor="email">Email</label>
+        <input 
+            type="text" 
+            id="email" 
+            placeholder="Enter email" 
+            onChange={(event) => {
+                setEmail(event.target.value)
+            }} 
+        />
 
-                <form action="">
-                    <div>
-                        <label htmlFor="emial">email</label>
-                        <input type="text" id='emial' placeholder='Enter emial'
-                            onChange={(event) => {
-                                setEmail(event.target.value)
-                            }} />
+        <label htmlFor="username">Username</label>
+        <input 
+            type="text" 
+            id="username" 
+            placeholder="Enter username" 
+            onChange={(event) => {
+                setUserName(event.target.value)
+            }} 
+        />
 
-                        <label htmlFor="username">Username</label>
-                        <input type="text" id='username' placeholder='Enter username'
-                            onChange={(event) => {
-                                setUserName(event.target.value)
-                            }} />
+        <label htmlFor="password">Password</label>
+        <input 
+            type="password" 
+            id="password" 
+            placeholder="Enter password" 
+            onChange={(event) => {
+                setPassword(event.target.value)
+            }} 
+        />
 
-                        <label htmlFor="Password">Password</label>
-                        <input type="password" id='Password' placeholder='Enter Password'
-                            onChange={(event) => {
-                                setPassword(event.target.value)
-                            }} />
+        <button type="submit" onClick={createUser}>
+            <span>Register</span>
+        </button>
+    </div>
+</form>
 
-                        <button type='submit' onClick={createUser}>
-                            <span>Register</span>
-                        </button>
-                    </div>
 
-                    {/* <span>
-                        ¿Has olvidado tu contraseña? <a href="">Click Here</a>
-                    </span> */}
-                </form>
 
 
             </div>

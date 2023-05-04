@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
 import {  FetchClasica } from "../utils/api";
 
-const useFetchInfo = () => {
+const useFetchInfo = (info_id, data, setData) => {
 
 
-  const [data, setData] = useState([]);
+//   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const FetchLocalizacionInfo = async (info_id) => {
-      const response = await FetchClasica(`http://localhost:4500/api/routes/clasica/${info_id}`);
-      console.log(response)
-      const jsonData = response.data
-      setData(jsonData);
-      console.log(jsonData)
+    const Fetchid = async () => {
+      const {ok, data} = await FetchClasica(`http://localhost:4500/api/routes/clasica/${info_id}`);
+        console.log(data, 'USEFETCHINFO')
+    //   console.log(`http://localhost:4500/api/routes/clasica/${info_id}` + "Prueba dorian")
+      
+    //   const jsonData = await response.json()
+
+    //   setData(jsonData);
+    //   console.log(jsonData + "Jsondataaaaa")
+    setData(data)
     };
-    FetchLocalizacionInfo();
-  }, []);
+    Fetchid();
+  }, [info_id]);
 
 
 

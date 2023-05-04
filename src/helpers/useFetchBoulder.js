@@ -26,3 +26,4 @@ const useFetchBoulder = () => {
 };
 
 export default useFetchBoulder;
+
