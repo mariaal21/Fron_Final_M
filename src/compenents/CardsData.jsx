@@ -6,21 +6,21 @@ export const CarsData = () =>{
     [
         {   
             id: 1,
-            img: {clasica},
+            img: clasica,
             title: "Clásica",
-            to: "/rutas/clasica"
+            to: "rutas/clasica"
         },
         {   
             id: 2,
-            img: {deportiva},
+            img: deportiva,
             title: "Deportiva",
-            to: "/rutas/deportiva"
+            to: "rutas/deportiva"
         },
         {   
             id: 3,
-            img:{ boulder},
+            img:boulder,
             title: "Boulder",
-            to: "/rutas/boulder"
+            to: "rutas/boulder"
         },
     ]
 } 

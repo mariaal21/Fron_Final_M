@@ -17,6 +17,7 @@ export const FormLog = () => {
             date: new Date(),
         };
 
+
         if (newTodo.email == "") {
             setErrors("Rellena el título");
             return;
