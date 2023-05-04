@@ -19,7 +19,7 @@ export const Carrousel = () => {
         imagen1,
         imagen2,
         imagen5,
-        imagen3,
+        imagen3
     ];
 
     const goToNextSlide = () => {
@@ -71,4 +71,3 @@ export const Carrousel = () => {
         </>
     )
 }
-

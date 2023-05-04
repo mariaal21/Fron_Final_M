@@ -1,27 +1,29 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate , useParams } from 'react-router-dom'
 import useFetchClasica from '../helpers/useFetchClasica'
+
 
 
 export const Clasica = () => {
 
+  const {user} = useParams()
+  console.log(user)
+    
+    const navigate = useNavigate()
 
+    const data = useFetchClasica('http://localhost:4500/api/routes/clasica')
 
-  const navigate = useNavigate()
-
-
-  const data = useFetchClasica()
-
+    
 
   return (
-    <div> <h1>Clasica</h1>
+    <div> <h1 className='TiposNombre'>Clasica</h1>
     
     <div>
         <div>
         {Array.isArray(data) ? (
           data.map((item) => (
-            <div key={item.id} onClick={() => navigate('/')}>
-              <p >{item.localizacion}</p>
+            <div key={item.info_id} onClick={() => navigate(`/rutas/clasica/description/${item.info_id}`)}>
+              <p className='localizacion'on >{item.localizacion}</p>
             </div>
           ))
         ) : (
