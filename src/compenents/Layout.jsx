@@ -13,8 +13,7 @@ const Layout = () => {
 
 
         <Navbar />
-       
-
+    
             <Outlet />
         
     </div>
@@ -22,4 +21,3 @@ const Layout = () => {
 }
 
 export default Layout
-

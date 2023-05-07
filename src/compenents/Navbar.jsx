@@ -1,19 +1,33 @@
 import { Link } from 'react-router-dom'
+import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "../pages/LogOutAuth";
+import LoginAuth from "../pages/LoginAuth";
 
 export const Navbar = () => {
 
+  const { isAuthenticated, user } = useAuth0();
+  const isAdmin = user && user.email === "maria@maria.es" && user.sub === "auth0|64526c260af2d0582e5c1126";
 
   return (
     <>
-      <div className='nav'>
-        <Link to="/" className='navbar' > Inicio </Link>
-        <Link to="/rutas" className='navbar'> Rutas </Link>
-        <Link to="/foro"  className='navbar'> Foro </Link>
-        <Link to="/favoritos"  className='navbar'> Favoritos </Link>
-        <Link to="/login" className='navbar'> Login </Link>
-        <Link to="/register" className='navbar'> Register </Link>
+
+      <div className='navbar'>
+        <div className='raya'></div>
+
+        <Link to="/" className='nav-link' > Inicio </Link>
+        {!isAdmin && <Link to="/rutas" className='nav-link'> Rutas </Link>}
+        { !isAdmin && <Link to="/foro" className='nav-link'> Foro </Link>}
+        {!isAdmin && <Link to="/contacto" className='nav-link'> Contacto </Link>}
+        {isAdmin && isAuthenticated && <Link to="/admin-dashboard" className='nav-link'> Admin </Link>}
+        <div className={isAuthenticated ? "ml-auto my-auto logout-btn" : "ml-auto my-auto login-btn"}>
+          {isAuthenticated ? <LogoutButton /> : <LoginAuth />}
+        </div>
+        <div className='raya'></div>
+
+
+
       </div>
     </>
-    
+
   )
 }

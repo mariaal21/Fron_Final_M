@@ -1,16 +1,16 @@
-import React from 'react'
-import  Comments  from '../compenents/Comments'
+import { useAuth0 } from "@auth0/auth0-react";
+import FormComments from "../compenents/FormComments";
+import ForoComments from "../compenents/ForoComments";
 
 export const Foro = () => {
 
+  const { user,roles, isAuthenticated, isLoading } = useAuth0();
 
+  
   return (
     <div>
-        <h1> Foro </h1>
-
-        
-        
-        <Comments></Comments>
+       { isAuthenticated && <FormComments />}
+      <ForoComments />
     </div>
-  )
-}
+  );
+};

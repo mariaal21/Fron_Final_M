@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from "react";
-import {  FetchClasica } from "../utils/api";
+import {   FetchTodas } from "../utils/api";
+
+
+/**
+ * Hook personalizado que permite hacer una petición a una API para obtener información sobre una ruta
+ * 
+ * @param {string} info_id - El id de la ruta de la que se desea obtener la información
+ * @param {Array} data - La información de la ruta obtenida de la API
+ * @param {Function} setData - Función para actualizar la información de la ruta obtenida de la API
+ * 
+ * @returns {Array} - La información de la ruta obtenida de la API
+ */
 
 const useFetchInfo = (info_id, data, setData) => {
 
@@ -8,14 +19,9 @@ const useFetchInfo = (info_id, data, setData) => {
 
   useEffect(() => {
     const Fetchid = async () => {
-      const {ok, data} = await FetchClasica(`http://localhost:4500/api/routes/clasica/${info_id}`);
+      const {ok, data} = await FetchTodas(`http://localhost:4500/api/routes/clasica/${info_id}`);
         console.log(data, 'USEFETCHINFO')
-    //   console.log(`http://localhost:4500/api/routes/clasica/${info_id}` + "Prueba dorian")
-      
-    //   const jsonData = await response.json()
-
-    //   setData(jsonData);
-    //   console.log(jsonData + "Jsondataaaaa")
+   
     setData(data)
     };
     Fetchid();
@@ -28,5 +34,10 @@ const useFetchInfo = (info_id, data, setData) => {
 
   
 };
+export default  useFetchInfo;
 
-export default useFetchInfo;
+
+
+
+
+

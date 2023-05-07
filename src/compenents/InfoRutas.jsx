@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Reservar } from './Reservar'
 
-
+import { useAuth0 } from '@auth0/auth0-react'
 import useFetchInfo from '../helpers/useFetchInfo'
+
+/**
+ * Componente que muestra la descripción de una ruta y permite reservarla si el usuario está autenticado.
+ * @returns {JSX.Element}
+ */
 
 export const InfoRutas = () => {
 
@@ -14,26 +19,16 @@ const {info_id} = useParams()
 
 console.log(info_id)
 
-// const [info , setInfo]= useState({})
+
 
   const navigate = useNavigate()
 
 
-//   useEffect(()=> {
-//     const getInfo = async () => {
-//       try {
-//         const data = await useFetchInfo(info_id)
-//         setInfo(data)
-//         console.log(setInfo)
-//        }
-//       catch {
-//         error
-//       }
-//     }
-//     getInfo()
-//  }, [info_id] )
-
 const datos = useFetchInfo(info_id, data, setData)
+
+ /**
+   * Mapea la descripción de la ruta desde la información obtenida.
+   */
 
 const mapeo = datos.map(dato => dato.descripcion)
 
@@ -44,23 +39,23 @@ const mapeonivel = datos.map(dato => dato.nivel)
 
 console.log(mapeo + "este es data info rutas")
 
-
-
-// const object = Object.values(data)
-// console.log(object + "oBAJETO")
-
-// const dataArray = new Array(data)
-// console.log(dataArray + "console del array")
+const { isAuthenticated } = useAuth0();
  
   return (
  <>
+  <div className='ruta-description '>
+    <h1 className='titulo'>{mapeotitulo}</h1>
+    <p className='descripcion'>{mapeo}</p>
+    <div className='dificultad'> 
+    <p>Nivel de dificultad : <span>{mapeonivel}</span></p>
+    </div>
+   
+    <div >
+       
+        {isAuthenticated  &&  <Link  to="/rutas/clasica/description/:info_id/reservar" className='boton' > Reservar </Link> }
+        </div>
 
-  <h1>{mapeotitulo}</h1>
-    <h1>{mapeo}</h1>
-    <h1>{mapeonivel}</h1>
-
-    <button  ><Link to="/rutas/clasica/description/:info_id/reservar" className='nada' > Reservar </Link></button>
-{/* <Link to="/rutas/clasica/description/:info_id/reservar" className='nada' > Reservar </Link> */}
+    </div>
 
     
  </>

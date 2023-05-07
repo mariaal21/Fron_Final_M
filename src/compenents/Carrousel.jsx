@@ -8,9 +8,19 @@ import imagen4 from '../assets/img/imagen4.jpg'
 import imagen5 from '../assets/img/imagen5.jpg'
 
 
+/**
 
+Componente de carrusel de imágenes.
+@returns {JSX.Element} Elemento JSX que renderiza el carrusel de imágenes.
+*/
 
 export const Carrousel = () => {
+
+
+    /**
+Array de imágenes a mostrar en el carrusel.
+@type {string[]}
+*/
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -22,14 +32,25 @@ export const Carrousel = () => {
         imagen3
     ];
 
+    /**
+Función que avanza al siguiente slide.
+*/
     const goToNextSlide = () => {
         setCurrentSlide((currentSlide + 1) % images.length);
     };
 
+
+    /**
+Función que retrocede al slide anterior.
+*/
     const goToPreviousSlide = () => {
         setCurrentSlide((currentSlide - 1 + images.length) % images.length);
     };
 
+
+    /**
+Efecto de intervalo que avanza el slide cada 4 segundos.
+*/
     useEffect(() => {
         const intervalId = setInterval(goToNextSlide, 4000);
 
@@ -51,8 +72,7 @@ export const Carrousel = () => {
                         <div className="carousel__image-container">
                           <img src={image} alt={`Image ${index}`} />
                           <span className="carousel__spam">
-                            Aprende sobre las mejores rutas 
-                            de la sierra de Madrid
+                            Never Stop Climbing
                           </span>
                         </div>
                       </div>

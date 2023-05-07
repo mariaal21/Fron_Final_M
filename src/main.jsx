@@ -8,40 +8,47 @@ import { Clasica } from './compenents/Clasica'
 import { Boulder } from './compenents/Boulder'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Deportiva } from './compenents/Deportiva'
-import { Favoritos } from './pages/Favoritos'
-import { Register } from './pages/Register'
+
 // import { Login } from './pages/Login'
 import { InfoRutas } from './compenents/InfoRutas'
+import { InfoRutasBoulder } from './compenents/InfoRutasBoulder'
 import { Foro} from './pages/Foro'
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 // import ReactDOM from "react-dom";
 import LoginAuth from './pages/LoginAuth'
 import { Reservar } from './compenents/Reservar'
+import { InfoRutasDeportiva } from './compenents/infoRutasDeportiva'
+import { DasboardAdmin } from './pages/DasboardAdmin'
 // import { useAuth0 } from "@auth0/auth0-react";
+// import { createBrowserHistory } from 'history';
+import './index.css';
+import { Contacto } from './pages/Contacto'
+
+
 
 
 
 // const { user, isAuthenticated, isLoading } = useAuth0();
-
+// const history = createBrowserHistory();
 
 const router = createBrowserRouter([
 
   {
+    
     path: '/',
-    element: <Layout />,
+    element: <Layout/>,
     children: [
       {
         index: true,
-        element: <Index />,
+        element: <Index/>,
       },
       {
         path: '/rutas',
-        element: <Rutas
-                />,
+        element: <Rutas />,
       },
       {
         path: '/rutas/clasica',
-        element: <Clasica />,
+        element: <Clasica/>,
       },
       {
         path: '/rutas/deportiva',
@@ -49,33 +56,50 @@ const router = createBrowserRouter([
       },
       {
         path: '/rutas/boulder',
-        element: <Boulder />,
+        element: <Boulder  />,
       },
       {
+        
         path: '/foro',
-        element: <Foro />,
+        element: <Foro/>,
       },
       {
-        path: '/favoritos',
-        element: <Favoritos />,
+        path: '/contacto',
+        element: <Contacto />,
       },
       {
         path: '/login',
         element: <LoginAuth />, //aqui deberian ir las rutas al los difernetes log in
       },
       {
-        path: '/register',
-        element: <Register />, //aqui deberian ir las rutas al los difernetes log in
-      },
-      {
         path:'rutas/clasica/description/:info_id',
-        element: <InfoRutas />
+        element: <InfoRutas  />
       },
       {
-        path:'rutas/clasica/description/:info_id/reservar',
+        path:'rutas/boulder/description/:info_id',
+        element: <InfoRutasBoulder/>
+      },
+      {
+        path:'rutas/deportiva/description/:info_id',
+        element: <InfoRutasDeportiva />
+      },
+      {
+        path:`rutas/clasica/description/:info_id/reservar`,
+        element: <Reservar/>
+      },
+      {
+        path:'rutas/deportiva/description/:info_id/reservar',
         element: <Reservar />
+      },
+      {
+        path:'rutas/boulder/description/:info_id/reservar',
+        element: <Reservar />
+      },
+      {
+        
+        path:'/admin-dashboard',
+        element: <DasboardAdmin />
       }
-
 
     ]
   }
@@ -90,7 +114,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       redirect_uri: window.location.origin
     }}>
 
-    <RouterProvider router={router}/>,
+    <RouterProvider router={router}/>
 
     </Auth0Provider>
   </React.StrictMode>,

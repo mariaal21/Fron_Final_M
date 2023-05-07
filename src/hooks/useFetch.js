@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Fetch } from "../utils/api";
 
-const useFetch = () => {
 
+/**
+ * Hook personalizado para hacer peticiones GET a una API y obtener los datos.
+ * @returns {Array} Los datos obtenidos de la API.
+ */
+
+
+const useFetch = () => {
+/**
+     * Función asincrónica para obtener los datos de la API y actualizar el estado del hook.
+     */
 
   const [data, setData] = useState([]);
 

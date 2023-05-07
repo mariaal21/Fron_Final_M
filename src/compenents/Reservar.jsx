@@ -1,55 +1,98 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
+import React, { useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useCalendarFetch } from '../hook/useCalendar';
+import '../Main.css'
 
-export const Reservar = () => {
+const options = [
+  { label: 'Ruta 1', value: 'ruta1' },
+  { label: 'Ruta 2', value: 'ruta2' },
+  { label: 'Ruta 3', value: 'ruta3' },
+  { label: 'Ruta 4', value: 'ruta4' },
+];
+
+export const Reservar = (info_id) => {
   const [nombre, setNombre] = useState('');
-  const [email, setEmail] = useState('');
+  const [ruta, setRuta] = useState('');
+  const [personas, setPersonas] = useState('');
   const [fecha, setFecha] = useState(new Date());
+  const [rutas, setRutas] = useState('');
 
-  const handleNombreChange = (e) => {
-    setNombre(e.target.value);
-  };
+  useEffect(()=> {
+    useCalendarFetch('http://localhost:4500/api/calendar')
+    .then((response)=>response.json())
+    .then((data)=> setRutas(data))
+  }, [])
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
 
-  const handleFechaChange = (date) => {
-    setFecha(date);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    //Aquí podrías enviar los datos del formulario al backend para procesarlos
+    // Aquí puedes enviar los datos del formulario al servidor
+    console.log({ nombre, ruta, personas, fecha });
+
+    try {
+      await useCalendarFetch(`http://localhost:4500/api/calendar`, {
+        nombre, 
+        ruta, 
+        personas,
+        fecha
+      })
+      alert('Ha reservado una ruta correctamente')
+    }catch {
+      alert('error al hacer la reserva')
+      console.log(error)
+    }
+
   };
+
+  
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="nombre">Nombre:</label>
-        <input
-          type="text"
-          id="nombre"
-          value={nombre}
-          onChange={handleNombreChange}
+    <form className='formReservar' onSubmit={handleSubmit}>
+      <label className='label'>
+        Nombre:
+        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+      </label>
+      <br />
+
+      <label className='rutas'>
+        Ruta:
+        <select className='select' value={ruta} onChange={(e) => setRuta(e.target.value)}>
+          <option value="">--Seleccione una ruta--</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </label>
+      <br />
+
+      <label className='label'>
+        Número de personas:
+        <input type="number" value={personas} onChange={(e) => setPersonas(e.target.value)} />
+      </label>
+      <br />
+
+      <label className='label'>
+        Fecha:
+        <DatePicker
+          selected={fecha}
+          onChange={(date) => setFecha(date)}
+          minDate={new Date()}
+          showTimeSelect
+          timeIntervals={45}
+          timeCaption="Hora"
+          dateFormat="dd/MM/yyyy HH:mm"
+          timeFormat="HH:mm"
         />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="fecha">Fecha:</label>
-        <Calendar onChange={handleFechaChange} value={fecha} />
-      </div>
-      <button type="submit">Enviar</button>
+        {/* <DatePicker selected={fecha} onChange={(date) => setFecha(date)} /> */}
+      </label>
+      <br />
+
+      <button className='Finish' type="submit">Reservar</button>
     </form>
   );
 };
 
-
+// export default Reservar;

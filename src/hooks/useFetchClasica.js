@@ -1,14 +1,30 @@
 import React, { useState, useEffect } from "react";
-import {  FetchClasica } from "../utils/api";
+import {   FetchTodas } from "../utils/api";
+
+
+
+/**
+
+Hook que maneja el fetch de información de rutas de Boulder.
+@param {string} info_id - El id de la ruta.
+@returns {array} - Un array con la información de las rutas de Boulder.
+*/
 
 const useFetchClasica = (info_id) => {
+
+
+  /**
+
+El estado que almacena la información de las rutas de Boulder.
+@type {array}
+*/
 
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const FetchLocalizacion = async () => {
-      const response = await FetchClasica(`http://localhost:4500/api/routes/clasica`);
+      const response = await FetchTodas(`http://localhost:4500/api/routes/clasica`);
       console.log(response)
       const jsonData = response.data
       setData(jsonData);

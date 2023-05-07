@@ -1,10 +1,10 @@
 import React from 'react'
-import useFetch from '../helpers/useFetch'
-import { Login } from './Login'
+import useFetch from '../hooks/useFetch'
+
 import { Carrousel } from '../compenents/Carrousel'
 import { Cards } from '../compenents/Cards'
-import { CarsData } from '../compenents/CardsData'
 import { useAuth0 } from '@auth0/auth0-react'
+import ForoComments from '../compenents/ForoComments'
 
 
 const Index = () => {
@@ -19,10 +19,6 @@ const Index = () => {
 
     console.log(user, isAuthenticated, isLoading + "ESte es el profile" )
 
-  //const data = useFetch()
-  // if (!data || !data.length) {
-  //   return <div>Cargando...</div>;
-  // }
 
 
   return (
@@ -30,29 +26,12 @@ const Index = () => {
    
     <>
       <Carrousel/>
-      <Cards
-      CarsData={CarsData}/>
+      <Cards />
+      
+     <ForoComments /> 
       
     </>
   )
 }
-/*
-<Login/>
 
-
-      <div>
-        {Array.isArray(data) ? (
-          data.map((item) => (
-            <div key={item.id}>
-              <p>{item.tipo}</p>
-            </div>
-            
-          ))
-        ) : (
-          <p>No se encontraron datos.</p>
-          
-        ) }
-        
-      </div>
-*/
 export default Index
