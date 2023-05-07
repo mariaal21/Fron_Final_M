@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate , useParams } from 'react-router-dom'
 import '../Main.css'
-import clasica from '../assets/img/clasica.jpg'
+import escaldaClasica from '../assets/img/escaldaClasica.jpg'
 import useFetchClasica from '../hooks/useFetchClasica'
 
 
@@ -42,7 +42,7 @@ export const Clasica = () => {
             <p className="text-lg font-semibold p-4">{item.localizacion}</p>
             <img
               className="w-full h-100 object-fit-cover"
-              src={clasica}
+              src={escaldaClasica}
               alt="claisca"
             />
           </div>

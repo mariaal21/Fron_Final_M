@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useCalendarFetch } from '../hook/useCalendar';
-import '../Main.css'
+import '../Main.css';
 
 const options = [
   { label: 'Ruta 1', value: 'ruta1' },
@@ -17,6 +17,7 @@ export const Reservar = (info_id) => {
   const [personas, setPersonas] = useState('');
   const [fecha, setFecha] = useState(new Date());
   const [rutas, setRutas] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(()=> {
     useCalendarFetch('http://localhost:4500/api/calendar')
@@ -27,6 +28,13 @@ export const Reservar = (info_id) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!nombre || !ruta || !personas || !fecha) {
+      setError('Por favor llene todos los campos obligatorios');
+      return;
+    } else {
+      setError('');
+    }
+    
     // Aquí puedes enviar los datos del formulario al servidor
     console.log({ nombre, ruta, personas, fecha });
 
@@ -38,14 +46,11 @@ export const Reservar = (info_id) => {
         fecha
       })
       alert('Ha reservado una ruta correctamente')
-    }catch {
+    }catch (error) {
       alert('error al hacer la reserva')
       console.log(error)
     }
-
   };
-
-  
 
   return (
     <form className='formReservar' onSubmit={handleSubmit}>
@@ -86,13 +91,11 @@ export const Reservar = (info_id) => {
           dateFormat="dd/MM/yyyy HH:mm"
           timeFormat="HH:mm"
         />
-        {/* <DatePicker selected={fecha} onChange={(date) => setFecha(date)} /> */}
       </label>
       <br />
-
+      
+      {error && <div className='error'>{error}</div>}
       <button className='Finish' type="submit">Reservar</button>
     </form>
   );
 };
-
-// export default Reservar;

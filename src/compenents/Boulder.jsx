@@ -1,7 +1,7 @@
 import React from 'react'
 import useFetchBoulder from '../hooks/useFetchBoulder'
 import { useNavigate, useParams } from 'react-router-dom'
-import clasica from '../assets/img/clasica.jpg'
+import ilustracionBoulder from '../assets/img/ilustracionBoulder.jpg'
 
 /**
  * Componente que muestra las rutas de tipo Boulder.
@@ -47,7 +47,7 @@ export const Boulder = () => {
 
                <img
               className="w-full h-100 object-fit-cover"
-              src={clasica}
+              src={ilustracionBoulder}
               alt="claisca"
             />
             </div>

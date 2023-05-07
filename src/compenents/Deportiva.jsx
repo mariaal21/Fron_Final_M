@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import useFetchDeportiva from '../hooks/useFetchDeportiva'
-import clasica from '../assets/img/clasica.jpg'
+import ilustracionUno from '../assets/img/ilustracionUno.jpeg'
 
 
 /**
@@ -44,7 +44,7 @@ export const Deportiva = () => {
 
               <img
               className="w-full h-100 object-fit-cover"
-              src={clasica}
+              src={ilustracionUno}
               alt="claisca"
             />
 
