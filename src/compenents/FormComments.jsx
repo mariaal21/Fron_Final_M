@@ -41,7 +41,7 @@ const FormComments = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto mt-40 w-full">
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto mt-20 w-full">
       <div className="mb-4">
         <label htmlFor="name" className="block font-medium mb-1">Nombre:</label>
         <input

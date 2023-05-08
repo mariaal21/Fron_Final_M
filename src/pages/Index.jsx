@@ -5,6 +5,7 @@ import { Carrousel } from '../compenents/Carrousel'
 import { Cards } from '../compenents/Cards'
 import { useAuth0 } from '@auth0/auth0-react'
 import ForoComments from '../compenents/ForoComments'
+import { Footer } from '../compenents/Footer'
 
 
 const Index = () => {
@@ -29,6 +30,7 @@ const Index = () => {
       <Cards />
       
      <ForoComments /> 
+     <Footer/>
       
     </>
   )

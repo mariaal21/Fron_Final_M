@@ -53,49 +53,52 @@ export const Reservar = (info_id) => {
   };
 
   return (
-    <form className='formReservar' onSubmit={handleSubmit}>
-      <label className='label'>
-        Nombre:
-        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-      </label>
-      <br />
+    <div class="p-10 bg-white rounded-lg shadow-lg">
+  <h1 class="text-3xl font-bold mb-4">Reserva de ruta</h1>
+  
+  <form class="flex flex-col" onSubmit={handleSubmit}>
+    <div class="mb-4">
+      <label class="font-bold text-gray-700" for="nombre">Nombre:</label>
+      <input class="border border-gray-400 p-2 w-full rounded-lg" type="text" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+    </div>
 
-      <label className='rutas'>
-        Ruta:
-        <select className='select' value={ruta} onChange={(e) => setRuta(e.target.value)}>
-          <option value="">--Seleccione una ruta--</option>
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </label>
-      <br />
+    <div class="mb-4">
+      <label class="font-bold text-gray-700" for="ruta">Ruta:</label>
+      <select class="border border-gray-400 p-2 w-full rounded-lg" id="ruta" value={ruta} onChange={(e) => setRuta(e.target.value)}>
+        <option value="">--Seleccione una ruta--</option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </div>
 
-      <label className='label'>
-        Número de personas:
-        <input type="number" value={personas} onChange={(e) => setPersonas(e.target.value)} />
-      </label>
-      <br />
+    <div class="mb-4">
+      <label class="font-bold text-gray-700" for="personas">Número de personas:</label>
+      <input class="border border-gray-400 p-2 w-full rounded-lg" type="number" id="personas" value={personas} onChange={(e) => setPersonas(e.target.value)} />
+    </div>
 
-      <label className='label'>
-        Fecha:
-        <DatePicker
-          selected={fecha}
-          onChange={(date) => setFecha(date)}
-          minDate={new Date()}
-          showTimeSelect
-          timeIntervals={45}
-          timeCaption="Hora"
-          dateFormat="dd/MM/yyyy HH:mm"
-          timeFormat="HH:mm"
-        />
-      </label>
-      <br />
+    <div class="mb-4">
+      <label class="font-bold text-gray-700" for="fecha">Fecha:</label>
+      <DatePicker
+        class="border border-gray-400 p-2 w-full rounded-lg"
+        selected={fecha}
+        onChange={(date) => setFecha(date)}
+        minDate={new Date()}
+        showTimeSelect
+        timeIntervals={45}
+        timeCaption="Hora"
+        dateFormat="dd/MM/yyyy HH:mm"
+        timeFormat="HH:mm"
+      />
+    </div>
       
-      {error && <div className='error'>{error}</div>}
-      <button className='Finish' type="submit">Reservar</button>
-    </form>
+    {error && <div class="text-red-500 mb-4">{error}</div>}
+      
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mx-auto" type="submit">Reservar</button>
+  </form>
+</div>
+
   );
 };

@@ -27,7 +27,7 @@ export const Boulder = () => {
 
   return (
 <>
-     <div class="fixed inset-0 bg-orange-300 p-10">
+     <div class=" inset-0 bg-orange-300 p-10">
     
     <div className="bg-orange-300 p-10 mt-20"> 
     
@@ -56,6 +56,8 @@ export const Boulder = () => {
           <p>No se encontraron datos.</p>
         )}
       </div>
+    </div>
+    <div className='mt-60'>
     </div>
     </div>
   

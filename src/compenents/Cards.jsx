@@ -32,7 +32,8 @@ export const Cards = () => {
   return (
 
    <>
-    <h1 className='mt'>Diferentes tipos de rutas</h1>
+    <h1 className='mt-20 mb-20 lg:ml-20 text-4xl'>Diferentes tipos de rutas</h1>
+
 <div className="container mx-auto">
   <div className="flex flex-wrap justify-center -mx-4">
     {info.map((value, index) => (

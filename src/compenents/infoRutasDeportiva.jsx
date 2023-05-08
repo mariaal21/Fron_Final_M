@@ -44,24 +44,21 @@ const { isAuthenticated } = useAuth0();
  
   return (
  <>
+<div class="max-w-4xl mx-auto my-8 mt-20 ">
+  <h1 class="text-4xl font-bold mb-4">{mapeotitulo}</h1>
+  <p class="text-gray-700 text-xl mb-8">{mapeo}</p>
+  
+  <div class="flex items-center mb-8">
+    <p class="text-lg font-medium mr-4">Nivel de dificultad:</p>
+    <span class="text-green-500">{mapeonivel}</span>
+  </div>
 
-    <div className='ruta-description '>
-    <h1 className='titulo'>{mapeotitulo}</h1>
-    <p className='descripcion'>{mapeo}</p>
-
-    <div className='dificultad'> 
-    <p>Nivel de dificultad : <span>{mapeonivel}</span></p>
+  {isAuthenticated && 
+    <div class="flex justify-center">
+      <Link to="/rutas/deportiva/description/:info_id/reservar" class="py-4 px-8 bg-green-500 text-white text-xl font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300 ease-in-out">Reservar</Link>
     </div>
-
-
-    {/* <button  > */}
-        <div >
-       
-        {isAuthenticated  &&  <Link  to="/rutas/deportiva/description/:info_id/reservar" className='boton' > Reservar </Link> }
-        </div>
-    {/* </button> */}
-    </div>
-
+  }
+</div>
     
  </>
 

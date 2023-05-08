@@ -12,7 +12,7 @@ export const Rutas = () => {
     
     /*const navigate = useNavigate()*/
   return (
-<div className="container mx-auto mt-8">
+<div className="container mx-auto mt-40">
   <div className='Margin-top'>
     <div className="flex flex-wrap -mx-4 mb-4">
       <div className="w-full md:w-1/3 p-4">

@@ -24,10 +24,10 @@ export const Navbar = () => {
         <div className='raya'></div>
 
         <div className="hamburger" onClick={toggleMenu}>
-  <div className="hamburger-line"></div>
-  <div className="hamburger-line"></div>
-  <div className="hamburger-line"></div>
-</div>
+          <div className="hamburger-line"></div>
+          <div className="hamburger-line"></div>
+          <div className="hamburger-line"></div>
+        </div>
 
         <Link to="/" className='nav-link' > Inicio </Link>
         {!isAdmin && <Link to="/rutas" className='nav-link'> Rutas </Link>}

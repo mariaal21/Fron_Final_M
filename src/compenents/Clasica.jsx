@@ -3,6 +3,7 @@ import { useNavigate , useParams } from 'react-router-dom'
 import '../Main.css'
 import escaldaClasica from '../assets/img/escaldaClasica.jpg'
 import useFetchClasica from '../hooks/useFetchClasica'
+import { Footer } from './Footer'
 
 
 /**
@@ -28,7 +29,7 @@ export const Clasica = () => {
   
   return (
 
-    <div class="fixed inset-0 bg-orange-300 p-10">
+    <div class=" inset-0 bg-orange-300 p-10 ">
     <div className="bg-orange-300 p-10 mt-20">
     <h1 className="text-2xl font-bold mb-4">Clasica</h1>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -52,7 +53,10 @@ export const Clasica = () => {
       )}
     </div>
   </div>
+    <div className='mt-60'>
     </div>
+    </div>
+   
 
   )
 }

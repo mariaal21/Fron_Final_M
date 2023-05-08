@@ -19,7 +19,7 @@ const ForoComments = () => {
   return (
 <>
 <div className="bg-white p-6 rounded-lg shadow-md mt-20">
-  <h2 className="text-2xl font-bold mb-4">Comentarios</h2>
+  <h2 className="text-2xl font-bold mb-4 ml-20">Comentarios</h2>
   <hr className="my-4" />
   {comentarios.ok && comentarios.data.length > 0 ? (
     comentarios.data.map((coment) => (

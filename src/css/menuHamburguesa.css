@@ -21,7 +21,21 @@
     background-color: black;
   }
   
-  @media (max-width: 768px) {
+  
+  .nav-link{
+    margin-right: 20px;
+    margin-left: 10px;
+  }
+
+
+    @media (max-width: 768px) {
+
+      .nav-link {
+        display: block;
+      }
+
+     
+  
     .navbar {
       flex-direction: column;
       align-items: flex-start;
@@ -81,5 +95,6 @@
     .navbar.show .hamburger-line:nth-child(3) {
       transform: rotate(-45deg) translate(7px, -7px);
     }
-  }
+    }
+  
   
