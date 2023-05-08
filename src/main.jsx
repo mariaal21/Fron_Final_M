@@ -73,7 +73,7 @@ const router = createBrowserRouter([
       },
       {
         path:'rutas/clasica/description/:info_id',
-        element: <InfoRutas  />
+        element: <InfoRutas />
       },
       {
         path:'rutas/boulder/description/:info_id',
