@@ -52,7 +52,7 @@ export const ForoAdmin = () => {
 
 
       
-<div className="table w-full ml-10 mr-10 mt-40 ">
+<div className="table w-full mr-10 mt-40 ">
 <h1>Comentarios del foro</h1>
   <div className="table-auto">
     <div className="flex">

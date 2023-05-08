@@ -27,7 +27,7 @@ export const Boulder = () => {
 
   return (
 <>
-     <div class=" inset-0 bg-orange-300 p-10">
+     <div className=" inset-0 bg-orange-300 p-10">
     
     <div className="bg-orange-300 p-10 mt-20"> 
     

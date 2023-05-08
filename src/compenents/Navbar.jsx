@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../pages/LogOutAuth";
 import LoginAuth from "../pages/LoginAuth";
 import "../css/menuHamburguesa.css"
-
+// import {  withAuthenticationRequired } from "@auth0/auth0-react";
 import { useState } from 'react';
+
 
 export const Navbar = () => {
 
@@ -15,6 +16,8 @@ export const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+
 
   return (
     <>
@@ -29,20 +32,28 @@ export const Navbar = () => {
           <div className="hamburger-line"></div>
         </div>
 
+       
+
         <Link to="/" className='nav-link' > Inicio </Link>
         {!isAdmin && <Link to="/rutas" className='nav-link'> Rutas </Link>}
-        {!isAdmin && <Link to="/foro" className='nav-link'> Foro </Link>}
+        {!isAdmin && isAuthenticated &&  <Link to="/foro" className='nav-link'> Foro </Link>}
         {!isAdmin && <Link to="/contacto" className='nav-link'> Contacto </Link>}
-        {isAdmin && isAuthenticated && <Link to="/admin-dashboard" className='nav-link'> Admin </Link>}
+        {isAdmin && isAuthenticated &&  <Link to="/admin-dashboard" className='nav-link'> Admin </Link>}
         <div className={isAuthenticated ? "ml-auto my-auto logout-btn" : "ml-auto my-auto login-btn"}>
           {isAuthenticated ? <LogoutButton /> : <LoginAuth />}
         </div>
         <div className='raya'></div>
 
-
+       
 
       </div>
     </>
 
   )
 }
+
+
+// export default withAuthenticationRequired(Navbar, {
+//   onRedirecting: () => <div>Loading...</div>,
+//   returnTo: "/admin-dashboard"
+// })

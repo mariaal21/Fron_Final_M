@@ -23,15 +23,15 @@ import { DasboardAdmin } from './pages/DasboardAdmin'
 // import { createBrowserHistory } from 'history';
 import './index.css';
 import { Contacto } from './pages/Contacto'
-
-
-
+import App from './App'
+import { DashboardDD } from './pages/DashboardDD'
 
 
 // const { user, isAuthenticated, isLoading } = useAuth0();
 // const history = createBrowserHistory();
 
 const router = createBrowserRouter([
+
 
   {
     
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
         element: <Boulder  />,
       },
       {
-        
+      
         path: '/foro',
         element: <Foro/>,
       },
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <LoginAuth />, //aqui deberian ir las rutas al los difernetes log in
+        element: <LoginAuth />, 
       },
       {
         path:'rutas/clasica/description/:info_id',
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
       {
         
         path:'/admin-dashboard',
-        element: <DasboardAdmin />
+        element: <DashboardDD />
       }
 
     ]

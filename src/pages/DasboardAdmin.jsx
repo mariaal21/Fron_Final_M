@@ -46,37 +46,38 @@ export const DasboardAdmin = () => {
         <div>
             <ForoAdmin/>
         </div>
-
        
-        <div className="table w-full ml-10 mr-10 mt-40">
-        <h1>Reservas Rutas</h1>
-  <div className="table-auto">
-    <div className="flex">
-      <div className="w-1/5 px-4 py-2 text-left border">Nombre</div>
-      <div className="w-1/5 px-4 py-2 text-left border">Ruta</div>
-      <div className="w-1/5 px-4 py-2 text-left border">Personas</div>
-      <div className="w-1/5 px-4 py-2 text-left border">Fecha</div>
-      <div className="w-1/5 px-4 py-2 text-right border"></div>
-    </div>
-    {data.map((item) => (
-      <div key={item.id} className="flex">
-        <div className="w-1/5 px-4 py-2 text-left border">{item.nombre}</div>
-        <div className="w-1/5 px-4 py-2 text-left border">{item.ruta}</div>
-        <div className="w-1/5 px-4 py-2 text-left border">{item.personas}</div>
-        <div className="w-1/5 px-4 py-2 text-left border">{moment(item.fecha).format('YYYY-MM-DD HH:mm')}</div>
-        <div className="w-1/5 px-4 py-2 text-right border">
-          <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(item.id)}>Eliminar</button>
-        </div>
-      </div>
-    ))}
-  </div>
+        <div class="w-full mr-10 mt-40 max-w-full max-w-1200px overflow-x-scroll">
+  <h1>Reservas Rutas</h1>
+  <table class="table w-full">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 text-left border">Nombre</th>
+        <th class="px-4 py-2 text-left border">Ruta</th>
+        <th class="px-4 py-2 text-left border">Personas</th>
+        <th class="px-4 py-2 text-left border">Fecha</th>
+        <th class="px-4 py-2 text-right border"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {data.map((item) => (
+        <tr key={item.id}>
+          <td class="px-4 py-2 text-left border">{item.nombre}</td>
+          <td class="px-4 py-2 text-left border">{item.ruta}</td>
+          <td class="px-4 py-2 text-left border">{item.personas}</td>
+          <td class="px-4 py-2 text-left border">{moment(item.fecha).format('YYYY-MM-DD HH:mm')}</td>
+          <td class="px-4 py-2 text-right border">
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(item.id)}>Eliminar</button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
 </div>
 
 
-{/* 
-        <div>
-            <ForoAdmin/>
-        </div> */}
+
+
         </>
 
     );
