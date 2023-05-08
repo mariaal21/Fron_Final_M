@@ -18,7 +18,7 @@ export const DasboardAdmin = () => {
         };
 
         fetchData();
-    }, [data]);
+    }, []);
 
     const handleDelete = async (eventId) => {
         try {

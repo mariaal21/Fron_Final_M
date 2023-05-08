@@ -12,7 +12,7 @@ const ForoComments = () => {
       .then(response => response.json())
       .then(data => setComentarios(data))
       .catch(error => console.log(error));
-  }, []);
+  }, [comentarios]);
 
   comentarios.data.sort((a, b) => b.commentid - a.commentid);// mostrar el último comentario
 

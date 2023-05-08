@@ -5,10 +5,15 @@ import { useCalendarFetch } from '../hook/useCalendar';
 import '../Main.css';
 
 const options = [
-  { label: 'Ruta 1', value: 'ruta1' },
-  { label: 'Ruta 2', value: 'ruta2' },
-  { label: 'Ruta 3', value: 'ruta3' },
-  { label: 'Ruta 4', value: 'ruta4' },
+  { label: 'La Cabrera, Pico de la miel', value: 'La Cabrera, Pico de la miel' },
+  { label: 'La Pedriza, La Guirles-Campos al Yelmo', value: 'La Pedriza, La Guirles-Campos al Yelmo' },
+  { label: 'Parque Nacional de Guadarrama, La Fulgencio al Hueso', value: 'Parque Nacional de Guadarrama, La Fulgencio al Hueso' },
+  { label: 'Peñalara, Pared del Zabala', value: 'Peñalara, Pared del Zabala' },
+  { label: 'Torrelodones La Fria', value: 'Torrelodones La Fria' },
+  { label: 'Zarzalejo, Plazoleta de Karmita', value: 'Zarzalejo, Plazoleta de Karmita' },
+  { label: 'La Pedriza, La Tortuga', value: 'La Pedriza, La Tortuga' },
+  { label: 'El escorial, El Yelmo', value: 'El escorial, El Yelmo' },
+  { label: 'Patones, El vellon', value: 'Patones, El vellon' },
 ];
 
 export const Reservar = (info_id) => {
@@ -16,14 +21,14 @@ export const Reservar = (info_id) => {
   const [ruta, setRuta] = useState('');
   const [personas, setPersonas] = useState('');
   const [fecha, setFecha] = useState(new Date());
-  const [rutas, setRutas] = useState('');
+  const [rutas, setRutas] = useState({data: []});
   const [error, setError] = useState('');
 
   useEffect(()=> {
     useCalendarFetch('http://localhost:4500/api/calendar')
     .then((response)=>response.json())
     .then((data)=> setRutas(data))
-  }, [])
+  }, [rutas])
 
 
   const handleSubmit = async (e) => {
@@ -96,7 +101,7 @@ export const Reservar = (info_id) => {
       
     {error && <div class="text-red-500 mb-4">{error}</div>}
       
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4 mx-auto" type="submit">Reservar</button>
+    <button class="bg-green-500 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-lg mt-4 mx-auto" type="submit">Reservar</button>
   </form>
 </div>
 
