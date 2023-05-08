@@ -1,17 +1,21 @@
-import { Outlet, Link, useLocation} from 'react-router-dom'
+
+import {  Outlet, Link, useLocation} from 'react-router-dom' 
+import '../Main.css'
+import { Navbar } from './Navbar'
+import { Footer } from './Footer'
+
 
 const Layout = () => {
   const location = useLocation()
   console.log(location)
   return (
     <div>
-      <Link to="/rutas" > Rutas </Link>
-      <Link to="/foro" > Foro </Link>
-      <Link to="/favoritos" > Favoritos </Link>
-      <Link to="/login" > Login </Link>
-      <main >
+
+
+        <Navbar />
+    
             <Outlet />
-        </main>
+        
     </div>
   )
 }

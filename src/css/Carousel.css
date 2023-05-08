@@ -1,44 +1,117 @@
 .carousel {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-  }
-  
-  .carousel__wrapper {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .carousel__slide {
-    flex: 0 0 100%;
-  }
-  
-  .carousel__slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .carousel__button--left,
-  .carousel__button--right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-size: 2rem;
-    color: white;
-  }
-  
-  .carousel__button--left {
-    left: 1rem;
-  }
-  
-  .carousel__button--right {
-    right: 1rem;
-  }
-  
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+.carousel__wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+}
+
+.carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel__button--left,
+.carousel__button--right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  color: white;
+}
+
+.carousel__button--left {
+  left: 1rem;
+}
+
+.carousel__button--right {
+  right: 1rem;
+}
+
+
+.carousel__image-container {
+  position: relative;
+}
+
+.carousel__spam {
+  position: absolute;
+  top: 400px;
+  left: 30%;
+  padding: 10px;
+  box-shadow: 2px 2px 4px rgba(51, 51, 51, 0.5) ;
+  border-radius: 10px;
+  width: 500px;
+  transform: translate(-60%, -10%);
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(245, 245, 245);
+  text-shadow: 2px 2px 4px rgba(51, 51, 51, 0.5);
+  background-color: rgb(68, 68, 68);
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+.carousel {
+  height: 400px;
+}
+
+.carousel__slide img {
+  height: 400px;
+}
+
+.carousel__spam {
+  top: 250px;
+  width: 300px;
+  font-size: 2rem;
+}
+}
+
+/* Tablet */
+@media only screen and (min-width: 601px) and (max-width: 960px) {
+.carousel {
+  height: 500px;
+}
+
+.carousel__slide img {
+  height: 500px;
+}
+
+.carousel__spam {
+  top: 350px;
+  width: 400px;
+  font-size: 2.5rem;
+}
+}
+
+/* Desktop */
+@media only screen and (min-width: 961px) {
+.carousel {
+  height: 600px;
+}
+
+.carousel__slide img {
+  height: 600px;
+}
+
+.carousel__spam {
+  top: 400px;
+  width: 500px;
+  font-size: 3rem;
+}
+}
