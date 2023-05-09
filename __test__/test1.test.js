@@ -9,7 +9,7 @@ describe('FetchTodas function', () => {
     const mockFetch = jest.fn().mockResolvedValue(mockResponse);
     global.fetch = mockFetch;
 
-    const url = 'https://api.example.com/data';
+    const url = 'http://localhost:4500/api/routes';
     const result = await FetchTodas(url);
 
     expect(mockFetch).toHaveBeenCalledWith(url, {

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: helpers/useFetchInfo.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,61 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: helpers/useFetchInfo.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
+import {   FetchTodas } from "../utils/api";
 
 
-    <h3> </h3>
+/**
+ * Hook personalizado que permite hacer una petición a una API para obtener información sobre una ruta
+ * 
+ * @param {string} info_id - El id de la ruta de la que se desea obtener la información
+ * @param {Array} data - La información de la ruta obtenida de la API
+ * @param {Function} setData - Función para actualizar la información de la ruta obtenida de la API
+ * 
+ * @returns {Array} - La información de la ruta obtenida de la API
+ */
+
+const useFetchInfo = (info_id, data, setData) => {
+
+
+//   const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const Fetchid = async () => {
+      const {ok, data} = await FetchTodas(`http://localhost:4500/api/routes/clasica/${info_id}`);
+        console.log(data, 'USEFETCHINFO')
+   
+    setData(data)
+    };
+    Fetchid();
+  }, [info_id]);
+
+
+
+  return data;
+  
+
+  
+};
+export default  useFetchInfo;
 
 
 
 
 
 
-
-
-
-
-    
-
-
-
-
-
+</code></pre>
+        </article>
+    </section>
 
 
 

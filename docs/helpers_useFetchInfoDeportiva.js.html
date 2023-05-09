@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: helpers/useFetchInfoDeportiva.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,59 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: helpers/useFetchInfoDeportiva.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
+import { FetchTodas } from "../utils/api";
 
 
 
+/**
+ * Hook personalizado que permite hacer una petición a una API para obtener información sobre una ruta
+ * 
+ * @param {string} info_id - El id de la ruta de la que se desea obtener la información
+ * @param {Array} data - La información de la ruta obtenida de la API
+ * @param {Function} setData - Función para actualizar la información de la ruta obtenida de la API
+ * 
+ * @returns {Array} - La información de la ruta obtenida de la API
+ */
+
+
+const useFetchInfoDeportiva = (info_id, data, setData) => {
+
+
+//   const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const Fetchid = async () => {
+      const {ok, data} = await FetchTodas(`http://localhost:4500/api/routes/deportiva/${info_id}`);
+        console.log(data, 'USEFETCHINFO')
+   
+    setData(data)
+    };
+    Fetchid();
+  }, [info_id]);
 
 
 
-    
+  return data;
+  
+
+  
+};
+export default  useFetchInfoDeportiva;
 
 
-
-
-
+</code></pre>
+        </article>
+    </section>
 
 
 

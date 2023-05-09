@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: hooks/useFetch.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,55 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: hooks/useFetch.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
+import { Fetch } from "../utils/api";
 
 
-    <h3> </h3>
+/**
+ * Hook personalizado para hacer peticiones GET a una API y obtener los datos.
+ * @returns {Array} Los datos obtenidos de la API.
+ */
+
+
+const useFetch = () => {
+/**
+     * Función asincrónica para obtener los datos de la API y actualizar el estado del hook.
+     */
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const FetchTipo = async () => {
+      const response = await Fetch('http://localhost:4500/api/routes');
+      console.log(response)
+      const jsonData = response.data
+      setData(jsonData);
+      console.log(jsonData)
+    };
+    FetchTipo();
+  }, []);
 
 
 
+  return data;
+  
 
+  
+};
 
-
-
-
-
-
-    
-
-
-
-
-
+export default useFetch;
+</code></pre>
+        </article>
+    </section>
 
 
 

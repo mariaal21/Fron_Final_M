@@ -5,15 +5,15 @@ import { useCalendarFetch } from '../hook/useCalendar';
 import '../Main.css';
 
 const options = [
-  { label: 'La Cabrera, Pico de la miel', value: 'La Cabrera, Pico de la miel' },
-  { label: 'La Pedriza, La Guirles-Campos al Yelmo', value: 'La Pedriza, La Guirles-Campos al Yelmo' },
-  { label: 'Parque Nacional de Guadarrama, La Fulgencio al Hueso', value: 'Parque Nacional de Guadarrama, La Fulgencio al Hueso' },
-  { label: 'Peñalara, Pared del Zabala', value: 'Peñalara, Pared del Zabala' },
-  { label: 'Torrelodones La Fria', value: 'Torrelodones La Fria' },
-  { label: 'Zarzalejo, Plazoleta de Karmita', value: 'Zarzalejo, Plazoleta de Karmita' },
-  { label: 'La Pedriza, La Tortuga', value: 'La Pedriza, La Tortuga' },
-  { label: 'El escorial, El Yelmo', value: 'El escorial, El Yelmo' },
-  { label: 'Patones, El vellon', value: 'Patones, El vellon' },
+  { label: 'La cabrera', value: 'ruta1' },
+  { label: 'La pedriza', value: 'ruta2' },
+  { label: 'Guadarrama', value: 'ruta3' },
+  { label: 'Peñalara', value: 'ruta4' },
+  { label: 'Torrelodones', value: 'ruta5' },
+  { label: 'Zarzalejo', value: 'ruta6' },
+  { label: 'La pedriza', value: 'ruta7' },
+  { label: 'El escorial', value: 'ruta8' },
+  { label: 'Patones', value: 'ruta9' },
 ];
 
 export const Reservar = (info_id) => {
